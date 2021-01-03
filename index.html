@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8"/>
+      <title>Rock, Paper, Scissors</title>
+  </head>
+   <script>
+       //this function generates randomly Rock, Paper, or Scissors
+       //@return moves[index], which is the random move.
+    function computerPlay() {
+        let moves = ["rock", "paper", "scissors"];
+        let index = Math.floor(Math.random()*3);
+        
+        return moves[index];
+    }
+       
+       function game() {
+           let playerScore = 0;
+           let compScore = 0;
+       
+           
+           let resultStr = "";
+           
+           for (let i = 0; i < 5; i++) {
+                let computerSelection = computerPlay();
+                let playerSelection = prompt("Type the number for your selection:\n 1.) Rock \n 2.) Paper \n 3.) Scissors ");
+                let playerPick = parseInt(playerSelection);
+       
+                switch (playerPick) {
+                    case 1:
+                        playerSelection = "rock";
+                        break;
+                    case 2:
+                        playerSelection = "paper";
+                        break;
+                    case 3:
+                        playerSelection = "scissors";
+                        break;
+                }
+               
+              resultStr = playRound(playerSelection, computerSelection);
+              console.log(resultStr);
+               
+              if (resultStr.includes("win")) {
+                  playerScore += 1;
+              } else if (resultStr.includes("lose")) {
+                  compScore += 1;
+              }
+           }
+           if (playerScore > compScore) {
+              console.log("After five rounds, you win " +playerScore + 
+                        " to " + compScore + "!"); 
+           } else if (compScore > playerScore) {
+              console.log("After five rounds, you lose " +playerScore + 
+                          " to " + compScore + ".");  
+           } else {
+              console.log("After five rounds, you tied!"); 
+           }
+           
+       }
+       
+       function playRound(playerSelection, computerSelection) {
+           //TODO: remove this
+           console.log("Computer chooses " + computerSelection);
+           
+           let result = "";
+           
+           switch (playerSelection) {
+               case "rock":
+                   result = rockOutcomes(computerSelection);
+                   break;
+               case "paper":
+                   result = paperOutcomes(computerSelection);
+                   break;
+               case "scissors":
+                   result = scissorsOutcomes(computerSelection);
+                   break;
+           }
+           
+           return result;
+           
+       }
+       
+       function rockOutcomes(compSelection) {
+           //player's choice is rock
+           let resultStr = "";
+           switch (compSelection) {
+               case "rock":
+                   resultStr = "A tie! You both chose rock.";
+                   break;
+               case "paper":
+                   resultStr = "You lose! Paper beats rock.";
+                   break;
+               case "scissors":
+                   resultStr = "You win! Rock beats scissors."
+                   break;
+           }
+           
+           return resultStr;
+       }
+       
+        function paperOutcomes(compSelection) {
+           //player's choice is paper
+           let resultStr = "";
+           switch (compSelection) {
+               case "rock":
+                   resultStr = "You win! Paper beats " + compSelection + ".";
+                   break;
+               case "paper":
+                   resultStr = "A tie! You both chose paper.";
+                   break;
+               case "scissors":
+                   resultStr = "You lose! Scissors beats paper."
+                   break;
+           }
+           
+           return resultStr;
+       }
+       
+        function scissorsOutcomes(compSelection) {
+           //player's choice is scissors
+           let resultStr = "";
+           switch (compSelection) {
+               case "rock":
+                   resultStr = "You lose! Rock beats scissors.";
+                   break;
+               case "paper":
+                   resultStr = "You win! Scissors beats paper.";
+                   break;
+               case "scissors":
+                   resultStr = "A tie! You both chose scissors."
+                   break;
+           }
+           
+           return resultStr;
+       }
+       
+       
+       game();
+       
+       //console.log(playRound(playerSelection, computerSelection));
+    
+    </script>
+    
+</html>

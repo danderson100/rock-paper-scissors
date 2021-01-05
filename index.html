@@ -3,40 +3,89 @@
   <head>
       <meta charset="UTF-8"/>
       <title>Rock, Paper, Scissors</title>
+      <link rel="stylesheet" href="style.css">
   </head>
+  <body>
+
+    <h1>Rock, Paper, Scissors -- Battle Royale</h1>
+
+    <div class="no-audio">
+        <button type="button" class="hidden">Audio Off</button>
+    </div>
+
+
+    <div class="buttons">
+
+        <button type="button" id="play-button">Play</button>
+
+        <button type="button" id="rock" class="hidden">Rock</button>
+       
+        <button type="button" id="paper" class="hidden">Paper</button>
+              
+        <button type="button" id="scissors" class="hidden">Scissors</button>
+    </div>
+       
+
+    <audio src="https://ia800903.us.archive.org/13/items/tvtunes_4335/Mortal%20Kombat.mp3" id="mc-start"></audio>
+    
+
+  
    <script>
-       //this function generates randomly Rock, Paper, or Scissors
+      //this function generates randomly Rock, Paper, or Scissors
        //@return moves[index], which is the random move.
-    function computerPlay() {
+       function computerPlay() {
         let moves = ["rock", "paper", "scissors"];
         let index = Math.floor(Math.random()*3);
         
         return moves[index];
     }
+
+    function audioOff() {
+        const audio = document.querySelector('#mc-start');
+        if (audio) {
+            audio.muted = true;
+        }
+    }
+
+    function choose() {
+
+
+        //play Mortal Combat intro
+        const audio = document.querySelector('#mc-start');
+        if (!audio) {
+            console.log("NO audio!!");
+            return;
+        }
+        audio.currentTime = 0;
+        audio.play();
+        
+        const buttons = document.querySelectorAll('button');
+
+        buttons.forEach((button) => {
+            button.classList.toggle('hidden');
+        });
+
+        var reply_click = function()
+        {
+            alert("Button clicked, id "+this.id+", text"+this.innerHTML);
+
+            game(this.id);
+        }
+        document.getElementById('rock').onclick = reply_click;
+        document.getElementById('paper').onclick = reply_click;
+        document.getElementById('scissors').onclick = reply_click;
+
+    }
        
-       function game() {
+       function game(playerSelection) {
+
            let playerScore = 0;
            let compScore = 0;
        
            
            let resultStr = "";
-           
-           for (let i = 0; i < 5; i++) {
-                let computerSelection = computerPlay();
-                let playerSelection = prompt("Type the number for your selection:\n 1.) Rock \n 2.) Paper \n 3.) Scissors ");
-                let playerPick = parseInt(playerSelection);
-       
-                switch (playerPick) {
-                    case 1:
-                        playerSelection = "rock";
-                        break;
-                    case 2:
-                        playerSelection = "paper";
-                        break;
-                    case 3:
-                        playerSelection = "scissors";
-                        break;
-                }
+        
+            let computerSelection = computerPlay();
                
               resultStr = playRound(playerSelection, computerSelection);
               console.log(resultStr);
@@ -46,15 +95,13 @@
               } else if (resultStr.includes("lose")) {
                   compScore += 1;
               }
-           }
+           
            if (playerScore > compScore) {
-              console.log("After five rounds, you win " +playerScore + 
-                        " to " + compScore + "!"); 
+              console.log("You win!"); 
            } else if (compScore > playerScore) {
-              console.log("After five rounds, you lose " +playerScore + 
-                          " to " + compScore + ".");  
+              console.log("You lose.");  
            } else {
-              console.log("After five rounds, you tied!"); 
+              console.log("You tied!"); 
            }
            
        }
@@ -135,9 +182,14 @@
            return resultStr;
        }
        
-       
-       game();
-           
+       const playBtn = document.querySelector('#play-button');
+       playBtn.addEventListener('click', choose);
+
+       const audioOffBtn = document.querySelector('.no-audio');
+       audioOffBtn.addEventListener('click', audioOff);
+
+
     </script>
-    
+
+   </body> 
 </html>

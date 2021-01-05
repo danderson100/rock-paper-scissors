@@ -10,6 +10,20 @@ body,html {
     font-family: sans-serif;
   }
 
+  @keyframes materialize {
+    from {opacity: 0};
+    to {opacity: 1};
+  }
+
+  #rock-img {
+      max-width: 300px;
+      max-height: auto;
+      z-index: -1;
+      position:relative;
+      animation-name: materialize;
+      animation-duration: 4s;
+  }
+
 h1 {
     display: flex;
     justify-content: center;
@@ -17,6 +31,14 @@ h1 {
     font-weight: bold;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     align-items: center;
+}
+
+.images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
 }
 
 .buttons {
@@ -41,15 +63,6 @@ h1 {
     font-size: 20px;
     font-weight: bold;
 }
-
-/* #rock-button {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: brown;
-    color: silver;
-} */
 
 .no-audio {
     display: flex;

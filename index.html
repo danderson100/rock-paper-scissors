@@ -9,6 +9,12 @@
 
     <h1>Rock, Paper, Scissors -- Battle Royale</h1>
 
+    <div class="images">
+        <img src="rock.jpeg" id="rock-img" class="hidden" alt="A giant rock">
+        <img src="scissors.jpeg" id="scissors-img" class="hidden" alt="Scary scissors">
+        <img src="paper_111691001.jpeg" id="paper-img" class="hidden" alt="Menacing paper">
+    </div>
+
     <div class="no-audio">
         <button type="button" class="hidden">Audio Off</button>
     </div>
@@ -24,11 +30,8 @@
               
         <button type="button" id="scissors" class="hidden">Scissors</button>
     </div>
-       
-
-    <audio src="https://ia800903.us.archive.org/13/items/tvtunes_4335/Mortal%20Kombat.mp3" id="mc-start"></audio>
     
-
+    <audio src="https://ia800903.us.archive.org/13/items/tvtunes_4335/Mortal%20Kombat.mp3" id="mc-start"></audio>
   
    <script>
       //this function generates randomly Rock, Paper, or Scissors
@@ -49,7 +52,6 @@
 
     function choose() {
 
-
         //play Mortal Combat intro
         const audio = document.querySelector('#mc-start');
         if (!audio) {
@@ -67,7 +69,7 @@
 
         var reply_click = function()
         {
-            alert("Button clicked, id "+this.id+", text"+this.innerHTML);
+            console.log("Button clicked, id "+this.id+", text"+this.innerHTML);
 
             game(this.id);
         }
@@ -85,7 +87,14 @@
            
            let resultStr = "";
         
-            let computerSelection = computerPlay();
+           let computerSelection = computerPlay();
+
+           switch (playerSelection) {
+               case 'rock':
+                   const rockImg = document.getElementById('rock-img');
+                   rockImg.classList.toggle('hidden');
+                   
+           }
                
               resultStr = playRound(playerSelection, computerSelection);
               console.log(resultStr);

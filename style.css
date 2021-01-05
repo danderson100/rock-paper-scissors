@@ -11,20 +11,41 @@ body,html {
   }
 
   @keyframes materialize {
-    from {opacity: 0};
-    to {opacity: 1};
+    0%   {opacity: 0;}
+    50%  {opacity: 1;}
+    100% {opacity: 0;}
   }
 
   #rock-img {
       max-width: 300px;
       max-height: auto;
-      z-index: -1;
-      position:relative;
+      position: relative;
       animation-name: materialize;
       animation-duration: 4s;
+      
   }
 
+  #paper-img {
+    max-width: 300px;
+    max-height: auto;
+    position: relative;
+    animation-name: materialize;
+    animation-duration: 4s;
+    
+}
+
+#scissors-img {
+    max-width: 300px;
+    max-height: auto;
+    position: relative;
+    animation-name: materialize;
+    animation-duration: 4s;
+    
+}
+
 h1 {
+    background-color: whitesmoke;
+    font-style: italic;
     display: flex;
     justify-content: center;
     font-size: 40px;
@@ -33,7 +54,7 @@ h1 {
     align-items: center;
 }
 
-.images {
+.image-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,11 +85,11 @@ h1 {
     font-weight: bold;
 }
 
-.no-audio {
-    display: flex;
-    justify-content: padding-left;
-    align-self: flex-end;
+#audio-img {
+    max-width: 60px;
+    max-height: auto;
 }
+
 
 .hidden {
     display: none;

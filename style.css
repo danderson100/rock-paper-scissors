@@ -16,7 +16,7 @@ body,html {
     100% {opacity: 0;}
   }
 
-  #rock-img {
+  .choice-pic {
       max-width: 300px;
       max-height: auto;
       position: relative;
@@ -24,24 +24,6 @@ body,html {
       animation-duration: 4s;
       
   }
-
-  #paper-img {
-    max-width: 300px;
-    max-height: auto;
-    position: relative;
-    animation-name: materialize;
-    animation-duration: 4s;
-    
-}
-
-#scissors-img {
-    max-width: 300px;
-    max-height: auto;
-    position: relative;
-    animation-name: materialize;
-    animation-duration: 4s;
-    
-}
 
 h1 {
     background-color: whitesmoke;

@@ -6,12 +6,18 @@
       <link rel="stylesheet" href="style.css">
   </head>
   <body>
-      
-
-        <img src="no_audio.jpeg" id="audio-button" class="hidden"/>
+      <img src="no_audio.jpeg" id="audio-button" class="hidden"/>
     
     <div class="container main">
-        <h1>Rock, Paper, Scissors</h1>
+        <h1>ROCK, PAPER, SCISSORS</h1>
+
+        <h2>YOU VS. COMP</h2>
+        <div class="container score">
+            <p id="user-score" class="score">0</p>
+            <p id="comp-score" class="score">0</p>
+        </div>
+
+        <p class="game-status">SCOREBOARD</p>
 
         <!-- <div class="container images">
             <img src="rock.jpeg" id="rock-img" class="hidden choice-pic" alt="A giant rock">
@@ -23,13 +29,14 @@
 
             <button type="button" id="play-button">Play</button>
 
-            <button type="button" id="rock" class="hidden">Rock</button>
+            <button type="button" id="rock" class="hidden choice-buttons">Rock</button>
        
-            <button type="button" id="paper" class="hidden">Paper</button>
+            <button type="button" id="paper" class="hidden choice-buttons">Paper</button>
               
-            <button type="button" id="scissors" class="hidden">Scissors</button>
+            <button type="button" id="scissors" class="hidden choice-buttons">Scissors</button>
 
         </div>
+        
     </div>
 
     <audio src="https://ia800903.us.archive.org/13/items/tvtunes_4335/Mortal%20Kombat.mp3" id="mc-start"></audio>

@@ -4,12 +4,22 @@ html {
 }
 
 body,html {
-    margin: 0;
-    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     overflow-y: hidden;
     
 
+  }
+
+  p {
+      margin: 0px 100px 0px 85px;
+      font-size: 50px;
+  }
+
+  h2 {
+      margin-top: 20px;
+      background-color:#19e73e;
+      font-weight: bold;
+      padding: 10px 10px 10px 10px;
   }
 
   @keyframes materialize {
@@ -28,6 +38,16 @@ body,html {
       flex-direction: column;
   }
 
+  .game-status {
+      margin-top: 20px;
+  }
+
+  .score {
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 100px;
+  }
+/* 
   .images {
       flex-direction: row;
   }
@@ -40,24 +60,34 @@ body,html {
       left: 50%;
       animation-name: materialize;
       animation-duration: 4s; 
-  }
+  } */
 
 h1 {
     background-color:#19e73e;
-    font-size: 90px;
+    font-size: 70px;
     font-weight: bold;
+    padding: 10px 10px 10px 10px;
+    margin: 0;
 }
 
 .buttons {
     flex-direction: row;
-    flex: 1;
-    min-height: 100vh;
-
+    min-height: 40vh;
     
+ 
 }
 
 #play-button {
     width: 200px;
+    height: 120px;
+    font-size: 80px;
+    background-color: #19e73e;
+    border-radius: 25%;
+    font-weight: bold;
+}
+
+.choice-buttons {
+    width: 350px;
     height: 120px;
     font-size: 80px;
     background-color: #19e73e;
